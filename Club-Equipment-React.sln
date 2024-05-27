@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Club-Equipment-React.Server", "Club-Equipment-React.Server\Club-Equipment-React.Server.csproj", "{5D6D245D-0144-4EAB-95CB-A9686634037B}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "club-equipment-react.client", "club-equipment-react.client\club-equipment-react.client.esproj", "{D408DFBB-D781-41A9-876A-A0E3E9ECBA97}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D6D245D-0144-4EAB-95CB-A9686634037B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D6D245D-0144-4EAB-95CB-A9686634037B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D6D245D-0144-4EAB-95CB-A9686634037B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D6D245D-0144-4EAB-95CB-A9686634037B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D408DFBB-D781-41A9-876A-A0E3E9ECBA97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D408DFBB-D781-41A9-876A-A0E3E9ECBA97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D408DFBB-D781-41A9-876A-A0E3E9ECBA97}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D408DFBB-D781-41A9-876A-A0E3E9ECBA97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D408DFBB-D781-41A9-876A-A0E3E9ECBA97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D408DFBB-D781-41A9-876A-A0E3E9ECBA97}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5590DD78-DFB2-4802-8A35-9BF37C62E653}
+	EndGlobalSection
+EndGlobal

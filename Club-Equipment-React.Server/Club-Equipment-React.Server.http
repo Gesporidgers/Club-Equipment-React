@@ -1,0 +1,6 @@
+@Club_Equipment_React.Server_HostAddress = http://localhost:5017
+
+GET {{Club_Equipment_React.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
