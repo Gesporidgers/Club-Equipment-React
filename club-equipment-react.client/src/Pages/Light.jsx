@@ -1,9 +1,15 @@
 ﻿import { useEffect, useState } from 'react';
-
+import axios from 'axios'
 function Light() {
-    var [items, setItems] = useState();
+    var [items, setItems] = useState([]);
+    
+    useEffect(() => {
+        axios.get('lightds').then((resp) => {
+            const allPersons = resp.data;
+            setItems(allPersons);
+        });
+    }, [setItems]);
 
-    items = populateData();
 
     const content =
         <table>
@@ -12,6 +18,7 @@ function Light() {
                     <th>ID</th>
                     <th>Наименование</th>
                     <th>Количество</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -20,6 +27,7 @@ function Light() {
                         <td>{item.id}</td>
                         <td>{item.name}</td>
                         <td>{item.quantity}</td>
+                        <td><button onClick={() => { delIt(item.id); setItems(items.filter(a => a.id != item.id)); } } >Delete</button></td>
                     </tr>
                 )}
             </tbody>
@@ -34,12 +42,12 @@ function Light() {
         </>
     );
 
-    async function populateData() {
+    function delIt(id) {
+        axios.delete('lightds/' + id);
         
-        const response = await fetch('lightds');
-        const data = await response.json();
-        return data;
     }
+
+    
 }
 
 export default Light;
