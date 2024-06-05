@@ -7,7 +7,11 @@
         <div className="modal-wrapper">
             <div className="modal">
                 <div className="body">
-                    <input id="nm" type="text" placeholder="Введите название"/>
+                    <label>Название прибора</label>
+                    <input id="nm" type="text" placeholder="Введите название" />
+                    <div/>
+                    <label>Количество оборудования</label>
+                    <input type="number" id="qty" min="1" max="100" step="1"/>
                 </div>
                 <div className="footer">
                     <button onClick={onCloseButtonClick}>Close Modal</button>

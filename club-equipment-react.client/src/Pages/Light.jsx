@@ -31,7 +31,7 @@ function Light() {
                         <td>{item.id}</td>
                         <td>{item.name}</td>
                         <td>{item.quantity}</td>
-                        <td><button onClick={() => { delIt(item.id); setItems(items.filter(a => a.id != item.id)); } } >Delete</button></td>
+                        <td><button onClick={() => { delIt(item.id); setItems(items.filter(a => a.id != item.id)); }} >Delete</button></td>
                     </tr>
                 )}
             </tbody>
@@ -39,23 +39,33 @@ function Light() {
 
     return (
         <>
-            <Modal show={showModal} onCloseButtonClick={() => { toggleModal(); console.log(document.getElementById("nm").value); } }/>
+            <Modal show={showModal} onCloseButtonClick={() => { toggleModal(); addNew(); }} />
             <h1>LIGHT</h1>
-            {content }
+            {content}
 
             <footer>
                 <button onClick={toggleModal}>+</button>
             </footer>
         </>
-        
+
     );
 
     function delIt(id) {
         axios.delete('lightds/' + id);
-        
+
     }
 
-    
+    function addNew() {
+        axios.post('lightds', {
+            id: 0,
+            name: document.getElementById("nm").value,
+            quantity: document.getElementById("qty").value,
+        }).then(resp => {
+            const dt = resp.data;
+            setItems([...items, dt]);
+        });
+        
+    }
 }
 
 export default Light;
