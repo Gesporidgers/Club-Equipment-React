@@ -18,3 +18,41 @@ th, td {
     padding-right: 1rem;
     color: black;
 }
+
+.modal {
+  position: relative;
+  background-color: #fff;
+  width: 500px;
+  height: 200px;
+  border: 1px solid rgb(179, 179, 179);
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 0 15px 160px;
+}
+
+.modal .footer {
+  width: 100%;
+  height: 60px;
+  background-color: rgb(243, 244, 246);
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  padding: 5px 1px;
+  flex-direction: row-reverse;
+}
+
+.modal-wrapper {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  filter:drop-shadow(10px 10px 50px black);
+  backdrop-filter:brightness(50%) grayscale(40%);
+  z-index: 9;
+  width: 100%;
+  min-height: 100vh;
+}
