@@ -48,6 +48,12 @@ export default defineConfig({
                 secure: false
             }
         },
+        proxy: {
+            '^/audiods': {
+                target: 'https://localhost:7060/api/',
+                secure: false
+            }
+        },
         port: 5173,
         https: {
             key: fs.readFileSync(keyFilePath),
