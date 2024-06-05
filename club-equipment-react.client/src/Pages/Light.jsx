@@ -8,7 +8,7 @@ function Light() {
     const toggleModal = () => { setShowModal(!showModal); };
 
     useEffect(() => {
-        axios.get('lightds').then((resp) => {
+        axios.get('api/lightds').then((resp) => {
             const allPersons = resp.data;
             setItems(allPersons);
         });
@@ -51,12 +51,12 @@ function Light() {
     );
 
     function delIt(id) {
-        axios.delete('lightds/' + id);
+        axios.delete('api/lightds/' + id);
 
     }
 
     function addNew() {
-        axios.post('lightds', {
+        axios.post('api/lightds', {
             id: 0,
             name: document.getElementById("nm").value,
             quantity: document.getElementById("qty").value,

@@ -43,17 +43,12 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            '^/lightds': {
-                target: 'https://localhost:7060/api/',
+            '^/api': {
+                target: 'https://localhost:7060/',
                 secure: false
             }
         },
-        proxy: {
-            '^/audiods': {
-                target: 'https://localhost:7060/api/',
-                secure: false
-            }
-        },
+        
         port: 5173,
         https: {
             key: fs.readFileSync(keyFilePath),
