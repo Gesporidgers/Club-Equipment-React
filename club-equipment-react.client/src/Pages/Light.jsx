@@ -39,7 +39,7 @@ function Light() {
 
     return (
         <>
-            <Modal show={showModal} onCloseButtonClick={() => { toggleModal(); addNew(); }} />
+            <Modal show={showModal} onCloseButtonClick={toggleModal} onAddButtonClick={() => { toggleModal(); addNew(); } } />
             <h1>LIGHT</h1>
             {content}
 

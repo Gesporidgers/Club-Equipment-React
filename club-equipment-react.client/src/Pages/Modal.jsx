@@ -1,4 +1,4 @@
-﻿const Modal = ({ show, onCloseButtonClick }) => {
+﻿const Modal = ({ show, onAddButtonClick,onCloseButtonClick }) => {
     if (!show) {
         return null;
     }
@@ -7,14 +7,15 @@
         <div className="modal-wrapper">
             <div className="modal">
                 <div className="body">
-                    <label>Название прибора</label>
+                    <label>Название прибора:</label>
                     <input id="nm" type="text" placeholder="Введите название" />
                     <div/>
-                    <label>Количество оборудования</label>
+                    <label>Количество оборудования:</label>
                     <input type="number" id="qty" min="1" max="100" step="1"/>
                 </div>
                 <div className="footer">
-                    <button onClick={onCloseButtonClick}>Close Modal</button>
+                    <button onClick={onAddButtonClick}>Добавить</button>
+                    <button className = "close"onClick={onCloseButtonClick}>Закрыть</button>
                 </div>
             </div>
         </div>

@@ -19,6 +19,27 @@ th, td {
     color: black;
 }
 
+button.close {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 4px 20px;
+    margin: 4px;
+    color: red;
+    border-color:orangered;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: aliceblue;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+    button.close:hover {
+        color: red;
+        background-color: darkgray;
+        border-color: red;
+    }
+
 .modal {
   position: relative;
   background-color: #fff;
@@ -28,6 +49,7 @@ th, td {
   border-radius: 15px;
   overflow: hidden;
   margin: 0 15px 160px;
+  font-size:16px;
 }
 
 .modal .footer {
@@ -59,4 +81,5 @@ th, td {
 
 label{
     color: black;
+    padding:0px 5px 0px 5px;
 }
