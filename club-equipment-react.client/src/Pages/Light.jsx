@@ -39,12 +39,12 @@ function Light() {
 
     return (
         <>
-            <Modal show={showModal} onCloseButtonClick={toggleModal}/>
+            <Modal show={showModal} onCloseButtonClick={() => { toggleModal(); console.log(document.getElementById("nm").value); } }/>
             <h1>LIGHT</h1>
             {content }
 
             <footer>
-                <button onClick={toggleModal }>+</button>
+                <button onClick={toggleModal}>+</button>
             </footer>
         </>
         

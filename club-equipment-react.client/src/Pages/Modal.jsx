@@ -1,4 +1,4 @@
-const Modal = ({ show, onCloseButtonClick }) => {
+﻿const Modal = ({ show, onCloseButtonClick }) => {
     if (!show) {
         return null;
     }
@@ -7,7 +7,7 @@ const Modal = ({ show, onCloseButtonClick }) => {
         <div className="modal-wrapper">
             <div className="modal">
                 <div className="body">
-                    Click on the close button to close the modal.
+                    <input id="nm" type="text" placeholder="Введите название"/>
                 </div>
                 <div className="footer">
                     <button onClick={onCloseButtonClick}>Close Modal</button>
