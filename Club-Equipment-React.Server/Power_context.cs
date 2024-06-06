@@ -1,19 +1,18 @@
 ﻿using Club_Equipment_React.Server.Models;
 using Microsoft.EntityFrameworkCore;
-
 namespace Club_Equipment_React.Server
 {
-    public class AD_context : DbContext
+	public class Power_context : DbContext
 	{
-		public DbSet<Device> audio_devices { get; set; } = null!;
+		public DbSet<Cable> powercons { get; set; } = null!;
 
-		public AD_context(DbContextOptions<AD_context> options) : base(options) {
+		public Power_context(DbContextOptions<Power_context> options) : base(options) { 
 			Database.EnsureCreated();
 		}
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlite("Data Source=Audio.db");
+			optionsBuilder.UseSqlite("Data Source=PWR.db");
 		}
 	}
 }

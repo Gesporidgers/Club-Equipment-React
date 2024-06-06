@@ -12,47 +12,47 @@ namespace Club_Equipment_React.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AudioDsController : ControllerBase
+    public class DMXController : ControllerBase
     {
-        private readonly AD_context _context;
+        private readonly DMX_context _context;
 
-        public AudioDsController(AD_context context)
+        public DMXController(DMX_context context)
         {
             _context = context;
         }
 
-        // GET: api/AudioDs
+        // GET: api/DMX
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Device>>> Getaudio_devices()
+        public async Task<ActionResult<IEnumerable<Cable>>> Getcables_dmx()
         {
-            return await _context.audio_devices.ToListAsync();
+            return await _context.cables_dmx.ToListAsync();
         }
 
-        // GET: api/AudioDs/5
+        // GET: api/DMX/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Device>> GetDevice(long id)
+        public async Task<ActionResult<Cable>> GetCable(long id)
         {
-            var device = await _context.audio_devices.FindAsync(id);
+            var cable = await _context.cables_dmx.FindAsync(id);
 
-            if (device == null)
+            if (cable == null)
             {
                 return NotFound();
             }
 
-            return device;
+            return cable;
         }
 
-        // PUT: api/AudioDs/5
+        // PUT: api/DMX/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDevice(long id, Device device)
+        public async Task<IActionResult> PutCable(long id, Cable cable)
         {
-            if (id != device.Id)
+            if (id != cable.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(device).State = EntityState.Modified;
+            _context.Entry(cable).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace Club_Equipment_React.Server.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DeviceExists(id))
+                if (!CableExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace Club_Equipment_React.Server.Controllers
             return NoContent();
         }
 
-        // POST: api/AudioDs
+        // POST: api/DMX
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Device>> PostDevice(Device device)
+        public async Task<ActionResult<Cable>> PostCable(Cable cable)
         {
-            _context.audio_devices.Add(device);
+            _context.cables_dmx.Add(cable);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetDevice", new { id = device.Id }, device);
+            return CreatedAtAction("GetCable", new { id = cable.Id }, cable);
         }
 
-        // DELETE: api/AudioDs/5
+        // DELETE: api/DMX/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteDevice(long id)
+        public async Task<IActionResult> DeleteCable(long id)
         {
-            var device = await _context.audio_devices.FindAsync(id);
-            if (device == null)
+            var cable = await _context.cables_dmx.FindAsync(id);
+            if (cable == null)
             {
                 return NotFound();
             }
 
-            _context.audio_devices.Remove(device);
+            _context.cables_dmx.Remove(cable);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool DeviceExists(long id)
+        private bool CableExists(long id)
         {
-            return _context.audio_devices.Any(e => e.Id == id);
+            return _context.cables_dmx.Any(e => e.Id == id);
         }
     }
 }

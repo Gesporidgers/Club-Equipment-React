@@ -13,6 +13,11 @@ namespace Club_Equipment_React.Server
 			builder.Services.AddControllers();
 			builder.Services.AddDbContext<LD_context>(options => options.UseSqlite("Data Source = Light.db"));
 			builder.Services.AddDbContext<AD_context>(options => options.UseSqlite("Data Source = Audio.db"));
+			builder.Services.AddDbContext<PhotoVideo_context>(options => options.UseSqlite("Data Source = PH_Vid.db"));
+			builder.Services.AddDbContext<Power_context>(options => options.UseSqlite("Data Source = PWR.db"));
+			builder.Services.AddDbContext<DMX_context>(options => options.UseSqlite("Data Source = DMX.db"));
+			builder.Services.AddDbContext<SoundC_context>(options => options.UseSqlite("Data Source = snd_cable.db"));
+			builder.Services.AddDbContext<VideoCable_context>(options => options.UseSqlite("Data Source = VideoCbl.db"));
 			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();

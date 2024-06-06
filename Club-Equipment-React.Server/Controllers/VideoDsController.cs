@@ -12,27 +12,27 @@ namespace Club_Equipment_React.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AudioDsController : ControllerBase
+    public class VideoDsController : ControllerBase
     {
-        private readonly AD_context _context;
+        private readonly PhotoVideo_context _context;
 
-        public AudioDsController(AD_context context)
+        public VideoDsController(PhotoVideo_context context)
         {
             _context = context;
         }
 
-        // GET: api/AudioDs
+        // GET: api/VideoDs
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Device>>> Getaudio_devices()
+        public async Task<ActionResult<IEnumerable<Device>>> Getphoto_video()
         {
-            return await _context.audio_devices.ToListAsync();
+            return await _context.photo_video.ToListAsync();
         }
 
-        // GET: api/AudioDs/5
+        // GET: api/VideoDs/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Device>> GetDevice(long id)
         {
-            var device = await _context.audio_devices.FindAsync(id);
+            var device = await _context.photo_video.FindAsync(id);
 
             if (device == null)
             {
@@ -42,7 +42,7 @@ namespace Club_Equipment_React.Server.Controllers
             return device;
         }
 
-        // PUT: api/AudioDs/5
+        // PUT: api/VideoDs/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDevice(long id, Device device)
@@ -73,28 +73,28 @@ namespace Club_Equipment_React.Server.Controllers
             return NoContent();
         }
 
-        // POST: api/AudioDs
+        // POST: api/VideoDs
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Device>> PostDevice(Device device)
         {
-            _context.audio_devices.Add(device);
+            _context.photo_video.Add(device);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetDevice", new { id = device.Id }, device);
         }
 
-        // DELETE: api/AudioDs/5
+        // DELETE: api/VideoDs/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDevice(long id)
         {
-            var device = await _context.audio_devices.FindAsync(id);
+            var device = await _context.photo_video.FindAsync(id);
             if (device == null)
             {
                 return NotFound();
             }
 
-            _context.audio_devices.Remove(device);
+            _context.photo_video.Remove(device);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -102,7 +102,7 @@ namespace Club_Equipment_React.Server.Controllers
 
         private bool DeviceExists(long id)
         {
-            return _context.audio_devices.Any(e => e.Id == id);
+            return _context.photo_video.Any(e => e.Id == id);
         }
     }
 }

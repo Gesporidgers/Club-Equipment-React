@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Club_Equipment_React.Server;
+using Club_Equipment_React.Server.Models;
 
 namespace Club_Equipment_React.Server.Controllers
 {
@@ -22,36 +23,36 @@ namespace Club_Equipment_React.Server.Controllers
 
         // GET: api/LightDs
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<LightD>>> Getlight_devices()
+        public async Task<ActionResult<IEnumerable<Device>>> Getlight_devices()
         {
             return await _context.light_devices.ToListAsync();
         }
 
         // GET: api/LightDs/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<LightD>> GetLightD(long id)
+        public async Task<ActionResult<Device>> GetDevice(long id)
         {
-            var lightD = await _context.light_devices.FindAsync(id);
+            var device = await _context.light_devices.FindAsync(id);
 
-            if (lightD == null)
+            if (device == null)
             {
                 return NotFound();
             }
 
-            return lightD;
+            return device;
         }
 
         // PUT: api/LightDs/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLightD(long id, LightD lightD)
+        public async Task<IActionResult> PutDevice(long id, Device device)
         {
-            if (id != lightD.Id)
+            if (id != device.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(lightD).State = EntityState.Modified;
+            _context.Entry(device).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +60,7 @@ namespace Club_Equipment_React.Server.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LightDExists(id))
+                if (!DeviceExists(id))
                 {
                     return NotFound();
                 }
@@ -75,31 +76,31 @@ namespace Club_Equipment_React.Server.Controllers
         // POST: api/LightDs
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<LightD>> PostLightD(LightD lightD)
+        public async Task<ActionResult<Device>> PostDevice(Device device)
         {
-            _context.light_devices.Add(lightD);
+            _context.light_devices.Add(device);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLightD", new { id = lightD.Id }, lightD);
+            return CreatedAtAction("GetDevice", new { id = device.Id }, device);
         }
 
         // DELETE: api/LightDs/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLightD(long id)
+        public async Task<IActionResult> DeleteDevice(long id)
         {
-            var lightD = await _context.light_devices.FindAsync(id);
-            if (lightD == null)
+            var device = await _context.light_devices.FindAsync(id);
+            if (device == null)
             {
                 return NotFound();
             }
 
-            _context.light_devices.Remove(lightD);
+            _context.light_devices.Remove(device);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LightDExists(long id)
+        private bool DeviceExists(long id)
         {
             return _context.light_devices.Any(e => e.Id == id);
         }
