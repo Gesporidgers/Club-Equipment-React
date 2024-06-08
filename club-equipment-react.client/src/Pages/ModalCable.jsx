@@ -7,19 +7,19 @@ const ModalCable = ({ show, onAddButtonClick, onCloseButtonClick, type }) => {
     if (!show) {
         return null;
     }
-    var tt =[];
+    var mode =[];
     switch (type) {
         case 'dmx':
-            tt = dmx;
+            mode = dmx;
             break;
         case 'sound':
-            tt = sound;
+            mode = sound;
             break;
         case 'video':
-            tt = video;
+            mode = video;
             break;
         case 'pwr':
-            tt = pwr;
+            mode = pwr;
             break
     }
 
@@ -30,7 +30,7 @@ const ModalCable = ({ show, onAddButtonClick, onCloseButtonClick, type }) => {
                 <div className="body">
                     <label>Тип:</label>
                     <select id="type">
-                        {tt.map(opt => <option value={opt}>{opt}</option>)}
+                        {mode.map(opt => <option value={opt}>{opt}</option>)}
                     </select>
                     <div />
                     <label>Длина:</label>
